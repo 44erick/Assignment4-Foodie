@@ -1,30 +1,49 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>The Joel Hilton Film Collection</title>
-    <link href="~/css/main.css" rel="stylesheet" />
+    <title>Top Restaurants in Provo Area</title>
+    <!--<link href="~/css/main.css" rel="stylesheet" />-->
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 
 
-<body>
+<body class="text-center">
+    <div class="navbar">
+        <div class="container">
+            <div class="navbar-collapse navbar-expand">
+
+                <ul class="nav navbar-nav" >
+                    <!--Making menu with cool Jquery and bootstrap-->
+                    <li><a asp-action="Index">Home</a></li>
+                    <li><a asp-action="foodForm">|      Restaurant Form      |</a></li>
+                    <li><a asp-action="foodList">   Restaurants List</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+
+
     <div class="header">
         <!--Using razor code-->
         <hi>@ViewBag.Title</hi>
     </div>
 
+
+
     @RenderBody()
 
 
-<div class="footer">
-    <!--Making menu with cool Jquery-->
-    <a asp-action="Index">Home</a>
-    <a asp-action="movieForm">Movie Form</a>
-    <a asp-action="podcasts">Podcasts</a>
-    <a asp-action="movieList">Movies List</a>
 
-</div>
-    <p>Copyright 2021</p>
+    <div class="container body-content">
+        <footer>
+            <p>Copyright 2021</p>
+        </footer>
+
+    </div>
+
 </body>
 
 </html>

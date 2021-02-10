@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieList.Models
+namespace Foodie.Models
 {
     public static class tempStorage
     {

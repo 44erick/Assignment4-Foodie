@@ -1,6 +1,6 @@
 using System;
 
-namespace MovieList.Models
+namespace Foodie.Models
 {
     public class ErrorViewModel
     {

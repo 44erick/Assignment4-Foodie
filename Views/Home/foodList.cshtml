@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "List of restaurant suggestions";
+}
+
+@model IEnumerable<Foodie.Models.modelResponse>
+<div class="text-center">
+    <div class="column"></div>
+    <div class="justify-content-center">
+        <!-- List of restaurants -->
+        <br />
+        <br />
+        <br />
+        <h2>List of Restaurants Entered:</h2>
+
+
+        <table style="display:inline" class="text-center justify-content-center">
+            <thead class="align-content-center">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Restaurant Name
+                    </th>
+                    <th>
+                        Favorite Dish
+                    </th>
+                    <th>
+                        Restaurant Phone #
+                    </th>
+                 </tr>
+            </thead>
+
+            <tbody> 
+                <!-- Using c# to loop through restaurants.-->
+                @foreach (Foodie.Models.modelResponse x in Model)
+                {
+                <tr>
+                    <td>@x.Name</td>
+                    <td>@x.Restaurant</td>
+                    <td>@x.Favorite</td>
+                    <td>@x.Phone</td>
+                </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+        <div class="column"></div>
+</div>

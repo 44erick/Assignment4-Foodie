@@ -1,13 +1,18 @@
 ﻿@{
-    ViewBag.Title = "The Joel Hilton Film Collection";
+    ViewBag.Title = "Top 5 Restaurants";
 }
+@model IEnumerable<string>
 
-
-<div class="row">
+<div class="text-center">
     <div class="column"></div>
-    <!-- Picture-->
-    <div class="column">
-        <img src="~/JoelHilton.jpg"/>
+    <!-- List of restaurants-->
+    <div class="list-group">
+        <ul>
+            @foreach (string r in Model)
+            {
+                <li class="list-group-item">@r</li>
+            }
+        </ul>
     </div>
     <div class="column"></div>
 </div>

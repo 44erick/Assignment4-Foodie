@@ -5,27 +5,30 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieList.Models
+namespace Foodie.Models
 {
     public class modelResponse
     {   
         //required
-        [Required(ErrorMessage = "Please enter category")]
-        public string Category { get; set; }
-        [Required(ErrorMessage = "Please enter title")]
-        public string Title { get; set; }
-        [Required(ErrorMessage = "Please enter year")]
-        public string Year { get; set; }
-        [Required(ErrorMessage = "Please enter director")]
-        public string Director { get; set; }
-        [Required(ErrorMessage = "Please enter rating")]
-        public string Rating { get; set; }
+        [Required(ErrorMessage = "Please enter name")]
+        public string Name { get; set; }
 
-        public bool Edited { get; set; }
 
-        public string Lent { get; set; }
-        [MaxLength (25, ErrorMessage ="No more than 25 characters allowed")]
-        public string Notes { get; set; }
+        [Required(ErrorMessage = "Please enter restaurant name")]
+        public string Restaurant { get; set; }
+
+
+        [Required(ErrorMessage = "Please enter favorite dish")]
+        public string Favorite { get; set; }
+
+
+        [Required(ErrorMessage = "Please enter restaurant phone #")]
+        [Phone]
+        public string Phone { get; set; }
+
+
+        //public string Lent { get; set; }
+        //[MaxLength (25, ErrorMessage ="No more than 25 characters allowed")]
 
     }
 }

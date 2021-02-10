@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MovieList.Models;
+using Foodie.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieList.Controllers
+namespace Foodie.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,16 +20,24 @@ namespace MovieList.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<string> restaurantList = new List<string>();
+
+            foreach(restaurants r in restaurants.GetRestaurants())
+            {
+                //rank, restaurant name, favorite dish, address, restaurant phone #, link to website
+                restaurantList.Add($"{r.foodRank} {r.foodRestaurant} {r.foodDish} {r.foodAddress} {r.foodPhone} {r.foodWebsite} ");
+            }
+
+            return View(restaurantList);
         }
         
         [HttpGet]
-        public IActionResult movieForm()
+        public IActionResult foodForm()
         {
             return View();
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult movieForm(modelResponse appResponse)
         {
             if (appResponse.Title == "Independence Day")
@@ -50,9 +58,26 @@ namespace MovieList.Controllers
                 //if not valid then show errors
                 return View();
             }
+        }*/
+
+        [HttpPost]
+        public IActionResult foodForm(modelResponse appResponse)
+        {
+            if (ModelState.IsValid)
+            {
+                //if valid the redirect them to confirmation page
+                tempStorage.AddMovie(appResponse);
+                return View("confirmation", appResponse);
+
+            }
+            else
+            {
+                //if not valid then show errors
+                return View();
+            }
         }
 
-        public IActionResult movieList()
+        public IActionResult foodList()
         {
             //temporary storage while session is active
             return View(tempStorage.Moviess);
